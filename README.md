@@ -10,3 +10,5 @@
 
  ![image](https://user-images.githubusercontent.com/81168390/115995595-d5b78e80-a616-11eb-821a-cfa540ec002a.png)
  ![image](https://user-images.githubusercontent.com/81168390/115995607-e23be700-a616-11eb-9753-cb19b4506e59.png)
+
+ 0426 건강 상태가 안좋아서 정말 말그대로 github contributions 채우기용 카피코딩하고 뻗었다...
