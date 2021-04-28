@@ -5,20 +5,25 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <div class="js-clock">
-      <h1 class="js-title"></h1>
-      <h2 class="test">Good Day!!</h2>
+    <div class="container">
+      <div class="centerBox">
+        <div class="js-clock">
+          <h1 class="js-title"></h1>
+          <h2 class="test">힘내자</h2>
+        </div>
+        <form class="js-form">
+          <input type="text" placeholder="What is your name?" class="input" onkeydown="inputEnter()">
+        </form>
+        <form class="js-toDoForm">
+          <input type="text" placeholder="Write a to do">
+        </form>
+        <ul class="js-toDoList">
+        </ul>
+      </div>
     </div>
-    <form class="js-form">
-      <input type="text" placeholder="What is your name?" class="input" onkeydown="inputEnter()">
-    </form>
-    <form class="js-toDoForm">
-      <input type="text" placeholder="Write a to do">
-    </form>
-    <ul class="js-toDoList">
-    </ul>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>
+    <script src="bg.js"></script>
   </body>
 </html>

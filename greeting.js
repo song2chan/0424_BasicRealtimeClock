@@ -8,7 +8,7 @@ function init() {
 
   if (username !== null) {
     input.classList.toggle(displayNone);
-    text.textContent += `${username}`;
+    text.textContent += ` ${username}`;
   } else {
     text.classList.toggle(displayNone);
   }

@@ -4,13 +4,32 @@ const toDoForm = document.querySelector(".js-toDoForm"),
 
 const TODOS_LS = 'toDos';
 
-const toDos = [];
+var toDos = [];
 
-function saveToDos() {
-  for (var i = 0; i < toDos.length; i++) {
-    toDos[i].id
+function saveToDos(ary) {
+  localStorage.setItem(TODOS_LS, JSON.stringify(ary));
+}
+
+function deleteToDo(delBtn) {
+  const targetIdx = delBtn.className *= 1;
+  var newToDos = [];
+
+  localStorage.removeItem(TODOS_LS);
+
+  let idx = "1";
+
+  toDos.forEach(function(target) {
+    if (toDos[targetIdx - 1] !== target) {
+      newToDos.push(target);
+    }
+  })
+
+  if (newToDos.length > 0) {
+    saveToDos(newToDos);
   }
-  localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
+
+  delBtn.parentNode.remove();
+  toDos = [];
 }
 
 function paintToDo(text) {
@@ -18,7 +37,12 @@ function paintToDo(text) {
   const delBtn = document.createElement("button");
   const span = document.createElement("span");
   const newId = toDos.length + 1;
+  delBtn.className = newId;
   delBtn.innerText = "X";
+  delBtn.addEventListener("click", function() {
+    deleteToDo(delBtn);
+  });
+
   span.innerText = text;
   li.appendChild(span);
   li.appendChild(delBtn);
@@ -29,7 +53,7 @@ function paintToDo(text) {
     id: newId
   };
   toDos.push(toDoObj);
-  saveToDos();
+  saveToDos(toDos);
 }
 
 function handleSubmit(event) {
@@ -55,7 +79,3 @@ function init() {
 }
 
 init();
-
-
-// 인풋을 받으면 로컬 스토라지에 배열로 저장, toDos가 비어있지않다면 ul에 하나씩 적어주고
-// li항목마다 X버튼이 있는데 누르면 로컬 스토라지에서 삭제

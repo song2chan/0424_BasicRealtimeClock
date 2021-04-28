@@ -1,5 +1,3 @@
-// clock
-
 const clockContainer = document.querySelector(".js-clock"),
   clockTitle = clockContainer.querySelector(".js-title");
 
@@ -26,6 +24,12 @@ function init() {
 }
 
 init();
+
+// 날짜가 넘어가면 toDoList가 초기화되는 기능
+// 그러려면 마지막 toDoList를 갱신할때마다 date를 기록하고..
+// date가 바뀌면 toDoList를 소거하는 방식?
+// username rename 기능
+// 24시/12시 표기전환 기능
 
 /* calculator with obejct
 
