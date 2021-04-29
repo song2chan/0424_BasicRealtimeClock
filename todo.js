@@ -14,22 +14,21 @@ function deleteToDo(delBtn) {
   const targetIdx = delBtn.className *= 1;
   var newToDos = [];
 
-  localStorage.removeItem(TODOS_LS);
-
-  let idx = "1";
+  let idx = 1;
 
   toDos.forEach(function(target) {
     if (toDos[targetIdx - 1] !== target) {
+      document.getElementById(idx+1).id = idx;
+      document.getElementById(idx).children[1].className = idx;
       newToDos.push(target);
+      idx += 1;
+    } else {
+      delBtn.parentNode.remove();
     }
   })
 
-  if (newToDos.length > 0) {
-    saveToDos(newToDos);
-  }
-
-  delBtn.parentNode.remove();
-  toDos = [];
+  saveToDos(newToDos);
+  toDos = newToDos;
 }
 
 function paintToDo(text) {
