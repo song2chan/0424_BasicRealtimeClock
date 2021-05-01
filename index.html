@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html>
   <head>
-    <title></title>
+    <title>두부한모</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -9,21 +9,24 @@
       <div class="centerBox">
         <div class="js-clock">
           <h1 class="js-title"></h1>
-          <h2 class="test">힘내자</h2>
+          <h2 class="test">보이루</h2>
         </div>
-        <form class="js-form">
-          <input type="text" placeholder="What is your name?" class="input" onkeydown="inputEnter()">
+        <form class="js-form"><span>
+          <input type="text" placeholder="What's your name?" class="input" onkeydown="inputEnter()">
+          <button class="rename">Rename</button></span>
         </form>
         <form class="js-toDoForm">
-          <input type="text" placeholder="Write a to do">
+          <input type="text" placeholder="Write a to do!" class="toDoInput">
         </form>
         <ul class="js-toDoList">
         </ul>
       </div>
     </div>
+    <span class="js-weather"></span>
     <script src="clock.js"></script>
     <script src="greeting.js"></script>
     <script src="todo.js"></script>
     <script src="bg.js"></script>
+    <script src="weather.js"></script>
   </body>
 </html>

@@ -1,21 +1,34 @@
 const text = document.querySelector(".test");
 const input = document.querySelector(".input");
+const todo = document.querySelector(".toDoInput");
+const renameBtn = document.querySelector(".rename");
+const todoList = document.querySelector(".js.toDoList");
 
 const displayNone = "displayNone";
 
-function init() {
-  const username = window.localStorage.getItem('username');
+const username = localStorage.getItem('username');
 
+input.addEventListener('input', updateUsername);
+renameBtn.addEventListener('click', rename);
+
+/* localstorage에서 username을 가져와서 만약에 undefined가 아니라면
+classList.toggle() -> 클래스 리스트에 해당하는 className이 있으면
+지우고 없으면 추가하는 함수를 이용해서 input(이름을 입력하는 부분)을
+display: none으로 해준다. 그리고 text content(hello등 인삿말)에 username을
+추가! 만약에 저장된 username이 없다면? 인삿말을 toggle한다.
+*/
+function init() {
   if (username !== null) {
     input.classList.toggle(displayNone);
     text.textContent += ` ${username}`;
   } else {
+    renameBtn.classList.toggle(displayNone);
     text.classList.toggle(displayNone);
+    todo.classList.toggle(displayNone);
   }
 }
 
-input.addEventListener('input', updateUsername);
-var testing = null;
+var testing;
 
 function updateUsername(e) {
   testing = e.target.value;
@@ -23,11 +36,17 @@ function updateUsername(e) {
 
 function inputEnter() {
   if (window.event.keyCode === 13 && testing !== null) {
-    window.localStorage.setItem('username', testing);
+    localStorage.setItem('username', testing);
+  }
+}
+
+function rename() {
+  if (username !== null) {
+    text.textContent = "";
+    input.classList.toggle(displayNone);
+    localStorage.removeItem('username');
+    init();
   }
 }
 
 init();
-
-// 내가 하고싶은거 - 유저네임이 로컬저장소에 저장되어있으면 form.input 대신 h2 환영합니다 유저네임씨!
-// 저장되어 있지않으면 유저네임 입력칸. 입력되면 로컬저장소에 저장!
